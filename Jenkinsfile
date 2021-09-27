@@ -5,6 +5,12 @@ pipeline {
       steps {
         dir('api'){
             sh 'docker-compose build'
+        }
+      }
+    }
+    stage('deploy') {
+      steps {
+        dir('api'){
             sh 'docker-compose up -d'
         }
       }
