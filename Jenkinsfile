@@ -3,12 +3,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        nodejs(nodeJSInstallationName: 'nodejs') {
-          dir('api'){
-            sh 'npm --version'
-            sh 'npm install'
-            sh 'npm run dev'
-          }
+        dir('api'){
+            sh 'docker-compose up --build'
         }
       }
     }
