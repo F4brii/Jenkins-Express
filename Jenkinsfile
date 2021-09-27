@@ -8,6 +8,13 @@ pipeline {
         }
       }
     }
+    stage('test') {
+      steps {
+        dir('api'){
+            sh 'docker-compose run --rm web npm run test'
+        }
+      }
+    }
     stage('deploy') {
       steps {
         dir('api'){
