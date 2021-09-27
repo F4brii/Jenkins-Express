@@ -4,21 +4,21 @@ pipeline {
     stage('build') {
       steps {
         dir('api'){
-            sh 'docker-compose build'
+            sh 'sudo docker-compose build'
         }
       }
     }
     stage('test') {
       steps {
         dir('api'){
-            sh 'docker-compose run --rm web npm run test'
+            sh 'sudo docker-compose run --rm web npm run test'
         }
       }
     }
     stage('deploy') {
       steps {
         dir('api'){
-            sh 'docker-compose up -d'
+            sh 'sudo docker-compose up -d'
         }
       }
     }
