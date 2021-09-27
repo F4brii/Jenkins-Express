@@ -1,12 +1,20 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                dir('api'){
-                  sh 'npm install'
-                }
-            }
-        }
+  agent any
+  tools {nodejs "latest"}
+  stages {
+    stage('preflight') {
+      steps {
+        echo sh(returnStdout: true, script: 'env')
+        sh 'node -v'
+      }
     }
+    stage('build') {
+      steps {
+        dir('api'){
+          sh 'npm --version'
+          sh 'npm install'
+        }
+      }
+    }
+  }
 }
