@@ -11,5 +11,14 @@ pipeline {
         }
       }
     }
+    stage('deploy') {
+      steps {
+        nodejs(nodeJSInstallationName: 'nodejs') {
+          dir('api'){
+            sh 'npm run dev'
+          }
+        }
+      }
+    }
   }
 }
