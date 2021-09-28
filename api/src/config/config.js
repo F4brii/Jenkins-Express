@@ -3,6 +3,6 @@ module.exports = {
         username: 'postgres',
         password: 'Assemblix86*',
         database: 'express',
-        host: 'localhost',
+        host: 'db',
     }
 };
