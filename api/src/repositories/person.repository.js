@@ -45,3 +45,18 @@ exports.savePerson = (req, res) => {
             });
         });
 };
+
+exports.findbyDni = (req, res) => {
+
+    const dni = req.params.dni;
+
+    Person.findOne({ where: { dni: dni } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving people."
+            });
+        });
+};

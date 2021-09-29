@@ -48,3 +48,23 @@ describe('Post /persons', () => {
             });
     });
 });
+
+describe('Get /persons/:dni', () => {
+    it('200 /persons/:dni', done => {
+        request(app)
+            .get('/persons/1121932148')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done)
+    });
+});
+/*
+describe('Delete /persons/:dni', () => {
+    it('200 /persons/:dni', done => {
+        request(app)
+            .get('/persons/1121932148')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done)
+    });
+});*/
